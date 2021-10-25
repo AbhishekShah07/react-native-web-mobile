@@ -1,8 +1,13 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, useParams, useLocation} from 'react-router-dom';
+import {useHistory} from 'react-router';
 
 const Wrapper = ({component, routesData}) => {
-  const navigate = (to, params, history) => {
+  const location = useLocation();
+  const history = useHistory();
+  const params = useParams();
+  console.log(location.pathname.split('/'));
+  const navigate = (to, params) => {
     let path = routesData[to].path;
     let newPath;
     switch (to) {
@@ -13,18 +18,22 @@ const Wrapper = ({component, routesData}) => {
         newPath = path;
     }
     history.push(newPath);
-    console.log(history);
   };
-  const goBack = history => {
+  const goBack = () => {
     history.goBack();
   };
 
-  // const getParam = () => {
-  //   return {params: {id: 1}};
-  // };
+  const getParam = () => {
+    switch (location.pathname.split('/')[1]) {
+      case 'details':
+        return {params: {id: params.id}};
+      case 'cart':
+        return {params: {id: params.id}};
+    }
+  };
   return React.cloneElement(component, {
     navigation: {navigate, goBack},
-    // route: getParam(),
+    route: getParam(),
   });
 };
 
