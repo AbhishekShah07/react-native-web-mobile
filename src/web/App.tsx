@@ -2,8 +2,8 @@ import * as React from 'react';
 import {NativeBaseProvider, Text} from 'native-base';
 import {Switch, BrowserRouter} from 'react-router-dom';
 
-import Home from './screens/Home/Home';
-import Details from './screens/Details/Details';
+import Home from '../screens/Home/Home';
+import Details from '../screens/Details/Details';
 import {RouteGenerator} from './RouteGenerator';
 
 const routes = {
