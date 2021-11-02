@@ -6,7 +6,6 @@ const Wrapper = ({component, routesData}) => {
   const location = useLocation();
   const history = useHistory();
   const params = useParams();
-  console.log(location.pathname.split('/'));
   const navigate = (to, params) => {
     let path = routesData[to].path;
     let newPath;
@@ -26,8 +25,6 @@ const Wrapper = ({component, routesData}) => {
   const getParam = () => {
     switch (location.pathname.split('/')[1]) {
       case 'details':
-        return {params: {id: params.id}};
-      case 'cart':
         return {params: {id: params.id}};
     }
   };

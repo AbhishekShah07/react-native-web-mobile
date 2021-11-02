@@ -1,5 +1,5 @@
-import Home from '../shared/screens/Home/Home';
-import Details from '../shared/screens/Details/Details';
+import Home from '../shared/screens/Home';
+import Details from '../shared/screens/Details';
 
 export const routes = {
   Home: {
@@ -8,10 +8,6 @@ export const routes = {
   },
   Details: {
     path: '/details/:id',
-    component: Details,
-  },
-  Cart: {
-    path: '/cart/:id',
     component: Details,
   },
 };
